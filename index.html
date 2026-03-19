@@ -5,317 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maurelli banán – Csomagolás és ültetés</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #f7f5f0;
-      --card-bg: #ffffff;
-      --text: #2a2a2a;
-      --muted: #6b6b6b;
-      --accent: #3d6b3a;
-      --accent-light: #e8f0e7;
-      --border: #e0dbd0;
-      --num: #3d6b3a;
-      --shadow: 0 2px 12px rgba(0,0,0,0.07);
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Source Sans 3', sans-serif;
-      font-weight: 300;
-      line-height: 1.75;
-      min-height: 100vh;
-    }
-
-    header {
-      background: var(--accent);
-      color: #fff;
-      padding: 56px 40px 48px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      margin-bottom: 20px;
-    }
-
-    header p {
-      max-width: 720px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      opacity: 0.92;
-    }
-
-    .header-kep {
-      display: block;
-      margin: 24px auto 28px;
-      max-width: 480px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--accent);
-      text-align: center;
-      padding: 52px 20px 8px;
-      letter-spacing: 0.02em;
-    }
-
-    .section-divider {
-      width: 60px;
-      height: 2px;
-      background: var(--accent);
-      margin: 10px auto 40px;
-      opacity: 0.4;
-    }
-
-    .step-list {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 32px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s;
-    }
-
-    .step:hover {
-      box-shadow: 0 6px 24px rgba(0,0,0,0.11);
-    }
-
-    .step-img-wrap {
-      flex: 0 0 240px;
-      max-width: 240px;
-    }
-
-    .step-img-wrap img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 3/4;
-    }
-
-    .step-body {
-      flex: 1;
-      padding-top: 4px;
-    }
-
-    .step-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: var(--accent-light);
-      color: var(--num);
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 50%;
-      margin-bottom: 12px;
-    }
-
-    .step-body p {
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.8;
-    }
-
-    footer {
-      background: var(--accent-light);
-      border-top: 1px solid var(--border);
-      padding: 36px 20px;
-      text-align: center;
-    }
-
-    footer p {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 0.97rem;
-      color: var(--muted);
-      line-height: 1.85;
-    }
-
-    footer strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    /* Kapcsolati footer */
-    .footer-contact {
-      background: var(--accent);
-      color: #fff;
-      padding: 36px 20px;
-      text-align: center;
-    }
-
-    .footer-contact-cim {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      opacity: 0.95;
-    }
-
-    .footer-contact-nev {
-      font-size: 1rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-      opacity: 0.85;
-    }
-
-    .footer-contact p { color: #fff; }
-
-    .footer-contact p:last-child {
-      font-size: 0.97rem;
-      line-height: 2;
-      opacity: 0.9;
-    }
-
-    .footer-contact a {
-      color: #fff;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .footer-contact a:hover { opacity: 0.75; }
-
-    /* Ismertető accordion szekció */
-    .ismerteto-wrap {
-      max-width: 900px;
-      margin: 40px auto 0;
-      padding: 0 20px;
-    }
-
-    .ismerteto {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    /* Böngésző alapértelmezett nyíl elrejtése */
-    .ismerteto summary::-webkit-details-marker { display: none; }
-    .ismerteto summary::marker { display: none; }
-
-    .ismerteto-trigger {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      padding: 22px 28px;
-      cursor: pointer;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 1rem;
-      color: var(--text);
-      line-height: 1.6;
-      text-align: center;
-      list-style: none;
-      user-select: none;
-    }
-
-    .ismerteto-trigger:hover { background: var(--accent-light); }
-
-    .ismerteto-trigger strong { color: var(--accent); }
-
-    .ismerteto-btn {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      padding: 7px 16px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    .ismerteto-arrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      transition: transform 0.25s ease;
-    }
-
-    details[open] .ismerteto-arrow { transform: rotate(180deg); }
-
-    .ismerteto-body {
-      padding: 28px 28px 32px;
-      border-top: 1px solid var(--border);
-    }
-
-    .ismerteto-body h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--accent);
-      margin: 28px 0 8px;
-    }
-
-    .ismerteto-body h3:first-child { margin-top: 0; }
-
-    .ismerteto-body p {
-      font-size: 0.97rem;
-      color: var(--text);
-      line-height: 1.85;
-    }
-
-    .ismerteto-body ul {
-      margin: 8px 0 0 20px;
-      font-size: 0.97rem;
-      color: var(--text);
-      line-height: 1.85;
-    }
-
-    .ismerteto-body li { margin-bottom: 4px; }
-
-    /* Teleltetés alkategóriák */
-    .ismerteto-body h4 {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.97rem;
-      font-weight: 500;
-      color: var(--text);
-      margin: 14px 0 4px;
-    }
-
-    @media (max-width: 600px) {
-      .step {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .step-img-wrap {
-        flex: none;
-        max-width: 100%;
-        width: 100%;
-      }
-      header { padding: 40px 20px 36px; }
-      .ismerteto-trigger { padding: 18px 20px; flex-wrap: wrap; }
-      .ismerteto-body { padding: 20px 20px 24px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -328,6 +18,47 @@
     A csomagolásnál a hézagok kitöltésére tőzeget használunk, mely 1:1 arányban keverhető virágfölddel, így kellően laza és megfelelő vízmegkötésű talajt kapunk ültetéskor.
   </p>
 </header>
+
+<!-- Galéria slider szekció -->
+<h2 class="section-title">Galéria</h2>
+<div class="section-divider"></div>
+<div class="galeria-wrap">
+  <div class="galeria-slider">
+    <div class="galeria-kepek">
+      <img src="kepek/maurelli_banan_galeria_01.jpeg" alt="Maurelli banán galéria 1" class="aktiv">
+      <img src="kepek/maurelli_banan_galeria_02.jpeg" alt="Maurelli banán galéria 2">
+      <img src="kepek/maurelli_banan_galeria_03.jpeg" alt="Maurelli banán galéria 3">
+      <img src="kepek/maurelli_banan_galeria_04.jpeg" alt="Maurelli banán galéria 4">
+      <img src="kepek/maurelli_banan_galeria_05.jpeg" alt="Maurelli banán galéria 5">
+    </div>
+    <button class="galeria-nyil galeria-nyil-bal" id="galeria-bal" aria-label="Előző kép">&#8592;</button>
+    <button class="galeria-nyil galeria-nyil-jobb" id="galeria-jobb" aria-label="Következő kép">&#8594;</button>
+    <div class="galeria-szamlalo" id="galeria-szamlalo">1 / 5</div>
+  </div>
+</div>
+
+<script>
+  /* Galéria slider kezelése */
+  const kepek = document.querySelectorAll('.galeria-kepek img');
+  const szamlalo = document.getElementById('galeria-szamlalo');
+  let aktualis = 0;
+
+  function kepMutat(index) {
+    kepek[aktualis].classList.remove('aktiv');
+    aktualis = (index + kepek.length) % kepek.length;
+    kepek[aktualis].classList.add('aktiv');
+    szamlalo.textContent = (aktualis + 1) + ' / ' + kepek.length;
+  }
+
+  document.getElementById('galeria-bal').addEventListener('click', () => kepMutat(aktualis - 1));
+  document.getElementById('galeria-jobb').addEventListener('click', () => kepMutat(aktualis + 1));
+
+  /* Billentyűzetes navigáció */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') kepMutat(aktualis - 1);
+    if (e.key === 'ArrowRight') kepMutat(aktualis + 1);
+  });
+</script>
 
 <!-- Összecsukható növényismertető szekció -->
 <div class="ismerteto-wrap">
