@@ -369,6 +369,72 @@ details[open] .ismerteto-arrow { transform: rotate(180deg); }
   letter-spacing: 0.05em;
 }
 
+/* Packeta feladás szekció */
+.packeta-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+
+.packeta-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.packeta-card p {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.packeta-card ul {
+  margin-left: 22px;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* Zöld kiemelő szövegek a kártyán belül */
+.packeta-card .packeta-kiemelt {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Méretek elkülönítése */
+.packeta-meret-blokk {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.packeta-meret-sor {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.packeta-meret-sor:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.packeta-fontos {
+  margin-top: 24px;
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
 @media (max-width: 600px) {
   .step {
     flex-direction: column;
